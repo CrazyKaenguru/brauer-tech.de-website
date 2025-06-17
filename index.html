@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brauer Tech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0f172a',
+            secondary: '#1e293b',
+            accent: '#3b82f6',
+            light: '#f8fafc',
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'sans-serif'],
+            body: ['Raleway', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'fade-in': 'fadeIn 1.5s ease-out forwards',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            fadeIn: {
+              '0%': { opacity: 0, transform: 'translateY(20px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/css">
+    .particles-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at 10% 20%, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+      overflow: hidden;
+    }
+    
+    .particles-bg::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 2px),
+        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 60px 60px, 30px 30px;
+      background-position: 0 0, 30px 30px;
+      animation: particlesMove 20s linear infinite;
+    }
+    
+    @keyframes particlesMove {
+      100% {
+        background-position: 60px 60px, 90px 90px;
+      }
+    }
+    
+    .glow-text {
+      text-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 
+                   0 0 30px rgba(59, 130, 246, 0.3);
+    }
+    
+    .floating {
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    .animate-delay-200 {
+      animation-delay: 0.2s;
+    }
+    
+    .animate-delay-400 {
+      animation-delay: 0.4s;
+    }
+    
+    .contact-card {
+      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    
+    .hover-grow {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-grow:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-primary text-light min-h-screen flex flex-col font-body">
+  <div class="particles-bg"></div>
+
+  <!-- Header -->
+  <header class="w-full py-6 px-4 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+    <a href="index.html" class="inline-block">
+      <div class="hover-grow">
+        <img src="assets/logo.svg" alt="Brauer Tech Logo" class="h-20">
+      </div>
+    </a>
+  </div>
+</header>
+
+  <!-- Hauptbereich -->
+  <main class="flex-grow flex items-center py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="text-center lg:text-left">
+          <h1 class="text-5xl md:text-7xl font-bold mb-6 font-heading animate-fade-in glow-text">
+            BRAUER TECH
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 text-slate-300 animate-fade-in animate-delay-200">
+            Wir revolutionieren die Technologie von morgen. Unsere neue Webpräsenz entsteht gerade.
+          </p>
+          <div class="mt-12 animate-fade-in animate-delay-400">
+            <div class="inline-block floating">
+              <div class="bg-accent w-24 h-1 mx-auto mb-6 rounded-full"></div>
+            </div>
+            <p class="text-lg text-slate-300 mb-6">
+              Bald gibt es hier mehr zu entdecken
+            </p>
+          </div>
+        </div>
+        
+        <div class="contact-card rounded-2xl p-10 shadow-2xl hover-grow animate-fade-in animate-delay-600">
+          <div class="text-center">
+            <h2 class="text-3xl font-semibold mb-8 font-heading">Kontaktieren Sie uns</h2>
+            <p class="text-xl mb-8">
+              Wir freuen uns auf Ihre Anfragen und Ideen
+            </p>
+            <div class="mb-10">
+              <div class="bg-gradient-to-r from-accent to-blue-400 w-32 h-1 mx-auto rounded-full"></div>
+            </div>
+            <p class="text-lg mb-8">
+              Schreiben Sie uns direkt:
+            </p>
+            <a href="mailto:info@brauer-tech.de" class="inline-block bg-gradient-to-r from-accent to-blue-500 text-white text-xl font-medium py-4 px-10 rounded-full shadow-lg hover:from-blue-500 hover:to-accent transition-all duration-300 transform hover:scale-105">
+              info@brauer-tech.de
+              <svg class="inline-block ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-700/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex space-x-8 mb-6 md:mb-0">
+          <a href="legal.html" class="text-slate-400 hover:text-accent transition-colors text-lg">Impressum</a>
+          <a href="legal.html#datenschutz" class="text-slate-400 hover:text-accent transition-colors text-lg">Datenschutz</a>
+        </div>
+        <p class="text-slate-500">
+          © 2025 Brauer Tech. Alle Rechte vorbehalten.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,224 @@
+:root {
+  --primary: #121212;
+  --secondary: #f5f5f7;
+  --accent: #5e81ff;
+  --accent-hover: #3d64ff;
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--primary);
+  color: var(--secondary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Particles Background */
+.particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at 10% 20%, rgba(30, 30, 40, 0.8) 0%, rgba(18, 18, 24, 0.9) 100%);
+  overflow: hidden;
+}
+
+.particles-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 10px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 5px);
+  background-size: 100px 100px, 50px 50px;
+  background-position: 0 0, 25px 25px;
+  animation: particlesMove 40s infinite linear;
+}
+
+@keyframes particlesMove {
+  100% {
+    background-position: 100px 100px, 75px 125px;
+  }
+}
+
+/* Header */
+header {
+  padding-top: 2rem;
+}
+
+.logo-hover {
+  display: inline-block;
+  transition: var(--transition);
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.logo-hover:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-3px);
+}
+
+.logo-hover img {
+  height: 40px;
+  filter: invert(1);
+}
+
+/* Main Content */
+main {
+  display: flex;
+  min-height: 80vh;
+  align-items: center;
+}
+
+.content-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.text-reveal {
+  animation: textReveal 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes textReveal {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+p {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: rgba(245, 245, 247, 0.8);
+}
+
+.fade-in {
+  animation: fadeIn 1.2s 0.6s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  100% { opacity: 1; }
+}
+
+/* Contact Section */
+.contact-section {
+  margin-top: 3rem;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  margin: 2.5rem auto;
+  max-width: 300px;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--accent);
+  color: white;
+  padding: 1rem 1.75rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  margin-top: 1rem;
+  box-shadow: 0 4px 20px rgba(94, 129, 255, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.contact-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(94, 129, 255, 0.5);
+  animation: none;
+}
+
+.contact-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(94, 129, 255, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(94, 129, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(94, 129, 255, 0); }
+}
+
+/* Footer */
+footer {
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(245, 245, 247, 0.6);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: rgba(245, 245, 247, 0.7);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    width: 85%;
+  }
+  
+  .contact-btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
